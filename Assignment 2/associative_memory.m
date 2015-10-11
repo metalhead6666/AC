@@ -14,10 +14,10 @@ function PAssociative = associative_memory(data)
     
     % applies the transpose or the pseudo-inverse
     if(option == 1)
-        PAssociative = T * PFinal';
+        PA = T * PFinal';
     else
-        PAssociative = T * pinv(PFinal);
+        PA = T * pinv(PFinal);
     end
     
-    PAssociative = PAssociative * data;
+    PAssociative = PA * data;
 end
