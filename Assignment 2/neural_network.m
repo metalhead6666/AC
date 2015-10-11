@@ -40,20 +40,20 @@ function net = neural_network()
         T(mod(i, 10) + 1, i + 1) = 1;
     end
  
-    %create neural network
+    % create neural network
     net = newp(ones(nP, 1) * [0 1], nA, activation_function, learn_method);
     
-    %initialize network parameters (random)
+    % initialize network parameters (random)
 	net.IW{1, 1} = 0.1 * rand(10, 256); 
 	net.b{1, 1} = 0.1 * rand(10, 1);
     
-    %enter training parameters
-    net.performParam.lr = 0.5;       % learning rate 
+    % enter training parameters
+    net.performParam.lr = 0.5;          % learning rate 
 	net.trainParam.epochs = 1000;       % maximum epochs 
 	net.trainParam.show = 35;           % show
 	net.trainParam.goal = 1e-6;         % goal=objective 
 	net.performFcn = 'sse';             % criterion 
     
-    %train the neural network
+    % train the neural network
     net = train(net, PFinal, T);
 end
