@@ -2,9 +2,9 @@ function PAssociative = associative_memory(data)
     load('PerfectArial.mat');
     load('PFinal500.mat');
     
-    % replicate the perfect matrix 50 times, to be the same size as the
+    % replicate the perfect matrix 51 times, to be the same size as the
     % train cases
-    T = repmat(Perfect, 1, 50);
+    T = repmat(Perfect, 1, 51);
     
     option = 0;
     
