@@ -48,7 +48,7 @@ function net = neural_network()
 	net.b{1, 1} = 0.1 * rand(10, 1);
     
     %enter training parameters
-    net.performParam.ratio = 0.5;       % learning rate 
+    net.performParam.lr = 0.5;       % learning rate 
 	net.trainParam.epochs = 1000;       % maximum epochs 
 	net.trainParam.show = 35;           % show
 	net.trainParam.goal = 1e-6;         % goal=objective 
