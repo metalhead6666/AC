@@ -3,7 +3,7 @@ function net = neural_network()
     file = 0;
     
     while(file ~= 1 && file ~= 2)
-        file = input('\nNumber of train cases:\n    1 - 500\n    2 - 200');
+        file = input('\nNumber of train cases:\n    1 - 500\n    2 - 200\n');
     end
     
     if(file == 1)
@@ -14,8 +14,8 @@ function net = neural_network()
     
     option = 0;
     
-    while(option ~= 1 && option ~= 2)
-        option = input('\nActivation Function:\n    1 - Binary\n    2 - Linear\n    3 - Sigmoidal');
+    while(option ~= 1 && option ~= 2 && option ~= 3)
+        option = input('\nActivation Function:\n    1 - Binary\n    2 - Linear\n    3 - Sigmoidal\n');
     end
     
     if(option == 1)
@@ -36,8 +36,8 @@ function net = neural_network()
     % generate T
     T = zeros(10, nCases);
     
-    for i = 1 : nCases
-        T(mod(i, 10), i) = 1;
+    for i = 0 : nCases - 1
+        T(mod(i, 10) + 1, i + 1) = 1;
     end
  
     %create neural network
