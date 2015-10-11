@@ -6,14 +6,14 @@ function PAssociative = associative_memory(data)
     % train cases
     T = repmat(Perfect, 1, 50);
     
-    option = input('\nLearning method:\n    1 - Hebb Rule\n    2 - Pseudo-Inverse Method\n');
+    option = 0;
     
-    while(isempty(option) || (option ~= 1 && option ~= 2))
-        option = input('\nWrong option!\nLearning method:\n    1 - Hebb Rule\n    2 - Pseudo-Inverse Method\n');
+    while(option ~= 1 && option ~= 2)
+        option = input('\nLearning method:\n    1 - Hebb Rule\n    2 - Pseudo-Inverse Method\n');
     end
     
     % applies the transpose or the pseudo-inverse
-    if option == 1
+    if(option == 1)
         PAssociative = T * PFinal';
     else
         PAssociative = T * pinv(PFinal);
