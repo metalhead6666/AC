@@ -1,4 +1,4 @@
-function return_value =  myclassify(data, filled)
+function result =  myclassify(data, filled)
 
     choice = 0;
     while( (choice ~= 1) && (choice ~= 2))
