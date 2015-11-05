@@ -75,13 +75,17 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in train_network.
 function train_network_Callback(hObject, eventdata, handles)
+    train_network();
 % hObject    handle to train_network (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
+
 % --- Executes on button press in trained_network.
 function trained_network_Callback(hObject, eventdata, handles)
+    trained_network();
 % hObject    handle to trained_network (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
