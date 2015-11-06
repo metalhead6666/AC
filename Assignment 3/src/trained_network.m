@@ -1,3 +1,3 @@
-function trained_network()
+function handles = trained_network(handles)
     disp('cona')
 end

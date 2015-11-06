@@ -22,7 +22,7 @@ function varargout = first_menu(varargin)
 
 % Edit the above text to modify the response to help first_menu
 
-% Last Modified by GUIDE v2.5 05-Nov-2015 23:36:32
+% Last Modified by GUIDE v2.5 06-Nov-2015 16:51:35
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -127,7 +127,7 @@ function trained_network_Callback(hObject, eventdata, handles)
         handles = train_network(handles);
     end
 
-    trained_network();
+    handles = trained_network(handles);
     
     % Update handles structure
     guidata(hObject, handles);
@@ -138,7 +138,7 @@ function trained_network_Callback(hObject, eventdata, handles)
 
 
 % --- Executes on button press in trained_network.
-function pushbutton4_Callback(hObject, eventdata, handles)
+%function pushbutton4_Callback(hObject, eventdata, handles)
 % hObject    handle to trained_network (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -150,8 +150,12 @@ function testDataList_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns testDataList contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from testDataList
+    contents = cellstr(get(hObject,'String')); %returns testDataList contents as cell array
+    handles.testFile = contents{get(hObject,'Value')}; %returns selected item from testDataList
+
+    % Update handles structure
+    guidata(hObject, handles);
+
 
 
 % --- Executes during object creation, after setting all properties.
@@ -174,8 +178,10 @@ function testDataCrysisP_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of testDataCrysisP as text
-%        str2double(get(hObject,'String')) returns contents of testDataCrysisP as a double
-
+    handles.percentageTest = str2double(get(hObject,'String')); %returns contents of testDataCrysisP as a double
+    handles.percentageTraining = 100 - handles.percentageTest;
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function testDataCrysisP_CreateFcn(hObject, eventdata, handles)
@@ -196,9 +202,11 @@ function trainingDataList_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns trainingDataList contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from trainingDataList
+    contents = cellstr(get(hObject,'String')); % returns trainingDataList contents as cell array
+    handles.trainingFile = contents{get(hObject,'Value')}; %returns selected item from trainingDataList
 
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function trainingDataList_CreateFcn(hObject, eventdata, handles)
@@ -220,8 +228,11 @@ function trainingDataCrysisP_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of trainingDataCrysisP as text
-%        str2double(get(hObject,'String')) returns contents of trainingDataCrysisP as a double
-
+    handles.percentageTraining = str2double(get(hObject,'String')); returns contents of trainingDataCrysisP as a double
+    handles.percentageTest = 100 - handles.percentageTraining;
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function trainingDataCrysisP_CreateFcn(hObject, eventdata, handles)
@@ -242,9 +253,11 @@ function networkType_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns networkType contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from networkType
-
+    contents = cellstr(get(hObject,'String')); % returns networkType contents as cell array
+    handles.networkName = contents{get(hObject,'Value')}; %returns selected item from networkType
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function networkType_CreateFcn(hObject, eventdata, handles)
@@ -266,8 +279,10 @@ function goalField_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of goalField as text
-%        str2double(get(hObject,'String')) returns contents of goalField as a double
+    handles.goal = str2double(get(hObject,'String'));% returns contents of goalField as a double
 
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function goalField_CreateFcn(hObject, eventdata, handles)
@@ -289,8 +304,10 @@ function epochsField_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of epochsField as text
-%        str2double(get(hObject,'String')) returns contents of epochsField as a double
+    handles.epochs = str2double(get(hObject,'String')); % returns contents of epochsField as a double
 
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function epochsField_CreateFcn(hObject, eventdata, handles)
@@ -311,8 +328,11 @@ function trainFunction_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns trainFunction contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from trainFunction
+    contents = cellstr(get(hObject,'String')); % returns trainFunction contents as cell array
+    handles.trainFunction = contents{get(hObject,'Value')}; % returns selected item from trainFunction
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -334,9 +354,11 @@ function performanceFunction_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns performanceFunction contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from performanceFunction
-
+    contents = cellstr(get(hObject,'String'));% returns performanceFunction contents as cell array
+    handles.performanceFunction = contents{get(hObject,'Value')};% returns selected item from performanceFunction
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function performanceFunction_CreateFcn(hObject, eventdata, handles)
@@ -358,8 +380,10 @@ function learningRateField_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of learningRateField as text
-%        str2double(get(hObject,'String')) returns contents of learningRateField as a double
+    handles.learningRate = str2double(get(hObject,'String')); % returns contents of learningRateField as a double
 
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function learningRateField_CreateFcn(hObject, eventdata, handles)
@@ -381,8 +405,10 @@ function neuronsField_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of neuronsField as text
-%        str2double(get(hObject,'String')) returns contents of neuronsField as a double
-
+    handles.hiddenLayersSizes = str2double(get(hObject,'String')); % returns contents of neuronsField as a double
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function neuronsField_CreateFcn(hObject, eventdata, handles)
@@ -404,8 +430,10 @@ function layersField_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of layersField as text
-%        str2double(get(hObject,'String')) returns contents of layersField as a double
-
+	handles.numberLayers = str2double(get(hObject,'String')); % returns contents of layersField as a double
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function layersField_CreateFcn(hObject, eventdata, handles)
@@ -420,19 +448,21 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on selection change in ActivationFunction.
-function ActivationFunction_Callback(hObject, eventdata, handles)
-% hObject    handle to ActivationFunction (see GCBO)
+% --- Executes on selection change in activationFunction.
+function activationFunction_Callback(hObject, eventdata, handles)
+% hObject    handle to activationFunction (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns ActivationFunction contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from ActivationFunction
+    contents = cellstr(get(hObject,'String')); % returns activationFunction contents as cell array
+    handles.activationFunction = contents{get(hObject,'Value')}; % returns selected item from activationFunction
 
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
-function ActivationFunction_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to ActivationFunction (see GCBO)
+function activationFunction_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to activationFunction (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -450,8 +480,10 @@ function charField_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of charField as text
-%        str2double(get(hObject,'String')) returns contents of charField as a double
+    handles.characteristics = str2double(get(hObject,'String')); % returns contents of charField as a double
 
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function charField_CreateFcn(hObject, eventdata, handles)
