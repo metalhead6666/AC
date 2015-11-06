@@ -1,3 +1,3 @@
-function train_network()
+function handles = train_network(handles)
     disp('merda')
 end

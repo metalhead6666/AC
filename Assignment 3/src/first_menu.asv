@@ -71,18 +71,10 @@ handles.classificationType = 'single';
 handles.groupLimitOnes = 5;
 handles.window_size = 10;
 
-handles.trainingFile = '54802.mat';
+handles.trainingFile = '44202.mat';
 handles.percentageTraining = 70;
 
-handles.testFile = '112502.mat';
-handles.percentageTest = 30;
-
-handles.trainingInput = [];
-handles.trainingOutput = [];
-handles.testInput = [];
-handles.testOutput = [];
-
-handles.characteristics = 29;
+handles.testFile = '
 
 
 % Update handles structure
@@ -105,13 +97,7 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in train_network.
 function train_network_Callback(hObject, eventdata, handles)
-    
-    [handles.trainingInput, handles.trainingOutput, handles.testInput, handles.testOutput] = prepareDataSets(handles);
-    
-    handles = train_network(handles);
-    
-    % Update handles structure
-    guidata(hObject, handles);
+    train_network();
 % hObject    handle to train_network (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -120,17 +106,7 @@ function train_network_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in trained_network.
 function trained_network_Callback(hObject, eventdata, handles)
-    
-    [handles.trainingInput, handles.trainingOutput, handles.testInput, handles.testOutput] = prepareDataSets(handles);
-    
-    if(isempty(handles.network))
-        handles = train_network(handles);
-    end
-
     trained_network();
-    
-    % Update handles structure
-    guidata(hObject, handles);
 % hObject    handle to trained_network (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
