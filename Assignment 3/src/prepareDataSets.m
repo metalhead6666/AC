@@ -1,13 +1,11 @@
 function [trainingInput, trainingOutput, testInput, testOutput] = prepareDataSets(handles)
-    disp('yey');
-    
     %Carregar dados do ficheiro de treino
     load(handles.trainingFile);
     
     %Alterar o Target
     Trg = modify_target(Trg);
     
-    %Filtrar características
+    %Filtrar caracterï¿½sticas
     FeatVectSel = processCharacteristics(FeatVectSel, Trg, handles.characteristics);
     
     %Indices das crises
@@ -23,7 +21,7 @@ function [trainingInput, trainingOutput, testInput, testOutput] = prepareDataSet
     %Alterar o Target
     Trg = modify_target(Trg);
     
-    %Filtrar características
+    %Filtrar caracterï¿½sticas
     FeatVectSel = processCharacteristics(FeatVectSel, Trg, handles.characteristics);
     
     %Indices das crises
@@ -42,7 +40,7 @@ function [trainingInput, trainingOutput, testInput, testOutput] = prepareDataSet
     testOutput = Trg(startTest:end,:);
     testOutput = testOutput';
     
-    %Preparar os outputs por causa dos três neurónios na camada de saída
+    %Preparar os outputs por causa dos trï¿½s neurï¿½nios na camada de saï¿½da
     
     [linhas,~] = size(trainingOutput);
     tempTrain = zeros(linhas, 3);
