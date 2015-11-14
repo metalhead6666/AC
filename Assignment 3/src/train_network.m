@@ -40,6 +40,6 @@ function handles = train_network(handles)
         handles.network.trainParam.max_fail = round(handles.epochs/2);
 		handles.network.performFcn = handles.performanceFunction;
         
-        handles.network = train(handles.network, handles.training_input, handles.training_output, 'useGPU', 'yes');
+        handles.network = train(handles.network, handles.trainingInput, handles.trainingOutput, 'useGPU', 'yes');
     end
 end

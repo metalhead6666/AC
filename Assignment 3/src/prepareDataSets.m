@@ -59,11 +59,11 @@ function [trainingInput, trainingOutput, testInput, testOutput] = prepareDataSet
     
     for i=1:length(testOutput)
         if(testOutput(1,i)==0) %Non-ictal
-            tempTrain(i,:) = [1,0,0];
+            tempTest(i,:) = [1,0,0];
         elseif(testOutput(1,i) == 1) %ictal
-            tempTrain(i,:) = [0,0,1];
+            tempTest(i,:) = [0,0,1];
         else %pre-ictal
-            tempTrain(i,:) = [0,1,0];
+            tempTest(i,:) = [0,1,0];
         end
     end
     
