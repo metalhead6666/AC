@@ -71,10 +71,10 @@ handles.classificationType = 'single';
 handles.groupLimitOnes = 5;
 handles.window_size = 10;
 
-handles.trainingFile = '54802.mat';
+handles.trainingFile = '../54802.mat';
 handles.percentageTraining = 70;
 
-handles.testFile = '112502.mat';
+handles.testFile = '../112502.mat';
 handles.percentageTest = 30;
 
 handles.trainingInput = [];
