@@ -20,7 +20,7 @@ function handles = train_network(handles)
 		handles.network.trainParam.epochs = handles.epochs;
 		handles.network.trainParam.show = 35;
 		handles.network.trainParam.goal = handles.goal;
-        handles.network.trainParam.max_fail = handles.validationChecks;
+        handles.network.trainParam.max_fail = round(handles.epochs/2);
 		handles.network.performFcn = handles.performanceFunction;
         
         handles.network = train(handles.network, handles.training_input, handles.training_output, 'useGPU', 'yes');
@@ -37,7 +37,7 @@ function handles = train_network(handles)
 		handles.network.trainParam.epochs = handles.epochs;
 		handles.network.trainParam.show = 35;
 		handles.network.trainParam.goal = handles.goal;
-        handles.network.trainParam.max_fail = handles.validationChecks;
+        handles.network.trainParam.max_fail = round(handles.epochs/2);
 		handles.network.performFcn = handles.performanceFunction;
         
         handles.network = train(handles.network, handles.training_input, handles.training_output, 'useGPU', 'yes');
