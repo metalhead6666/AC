@@ -13,8 +13,6 @@ function [trainingInput, trainingOutput, testInput, testOutput] = prepareDataSet
     
     %Dados de treino
     [trainingInput, trainingOutput] = getPercentageData(crysisIndexes, Trg, FeatVectSel, handles.percentageTraining);
-    disp(size(trainingInput));
-    disp(size(trainingOutput));
     
     %Carregar dados do ficheiro de teste
     load(handles.testFile);
