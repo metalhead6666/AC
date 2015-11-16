@@ -22,7 +22,7 @@ function varargout = first_menu(varargin)
 
 % Edit the above text to modify the response to help first_menu
 
-% Last Modified by GUIDE v2.5 06-Nov-2015 16:51:35
+% Last Modified by GUIDE v2.5 16-Nov-2015 10:41:43
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -69,7 +69,7 @@ handles.hiddenLayersSizes = 30;
 handles.classificationType = 'single';
 
 handles.groupLimitOnes = 5;
-handles.window_size = 10;
+handles.windowSize = 10;
 
 handles.trainingFile = '../54802.mat';
 handles.percentageTraining = 70;
@@ -151,7 +151,7 @@ function testDataList_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
     contents = cellstr(get(hObject,'String')); %returns testDataList contents as cell array
-    handles.testFile = contents{get(hObject,'Value')}; %returns selected item from testDataList
+    handles.testFile = strcat('../',contents{get(hObject,'Value')}); %returns selected item from testDataList
 
     % Update handles structure
     guidata(hObject, handles);
@@ -203,7 +203,7 @@ function trainingDataList_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
     contents = cellstr(get(hObject,'String')); % returns trainingDataList contents as cell array
-    handles.trainingFile = contents{get(hObject,'Value')}; %returns selected item from trainingDataList
+    handles.trainingFile = strcat('../',contents{get(hObject,'Value')}); %returns selected item from trainingDataList
 
     % Update handles structure
     guidata(hObject, handles);
@@ -496,3 +496,21 @@ function charField_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes when selected object is changed in classificationTypePanel.
+function classificationTypePanel_SelectionChangedFcn(hObject, eventdata, handles)
+% hObject    handle to the selected object in classificationTypePanel 
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+    selected = get(eventdata.NewValue,'Tag');
+    
+    if(strcmp(selected, 'singleClassifButton'))
+        handles.classificationType = 'single';
+    else
+        handles.classificationType = 'group';
+    end
+    
+    % Update handles structure
+    guidata(hObject, handles);
