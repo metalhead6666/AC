@@ -1,7 +1,5 @@
 function results = convertResults(results)
-
-    sizeResults = size(results);
-    numberCols = sizeResults(2);
+    [~, numberCols] = size(results);    
 
     %Convert values in results to 0 or 1.
     for i=1:numberCols
