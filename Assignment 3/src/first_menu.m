@@ -228,7 +228,7 @@ function trainingDataCrysisP_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hints: get(hObject,'String') returns contents of trainingDataCrysisP as text
-    handles.percentageTraining = str2double(get(hObject,'String')); returns contents of trainingDataCrysisP as a double
+    handles.percentageTraining = str2double(get(hObject,'String')); %returns contents of trainingDataCrysisP as a double
     handles.percentageTest = 100 - handles.percentageTraining;
     
     % Update handles structure

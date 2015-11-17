@@ -36,6 +36,7 @@ function [trainingInput, trainingOutput, testInput, testOutput] = prepareDataSet
     testInput = FeatVectSel(startTest:end,:);
     testInput = testInput';
     
+    
     testOutput = Trg(startTest:end,:);
     testOutput = testOutput';
     

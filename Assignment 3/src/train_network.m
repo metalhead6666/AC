@@ -23,7 +23,8 @@ function handles = train_network(handles)
         handles.network.trainParam.max_fail = round(handles.epochs/2);
 		handles.network.performFcn = handles.performanceFunction;
         
-        handles.network = train(handles.network, handles.trainingInput, handles.trainingOutput, 'useGPU', 'yes');
+        %handles.network = train(handles.network, handles.trainingInput, handles.trainingOutput, 'useGPU', 'yes');
+        handles.network = train(handles.network, handles.trainingInput, handles.trainingOutput);
 
     elseif(strcmp(handles.networkName, 'FeedForward'))
 		%Define some of the network's specifications
@@ -40,6 +41,7 @@ function handles = train_network(handles)
         handles.network.trainParam.max_fail = round(handles.epochs/2);
 		handles.network.performFcn = handles.performanceFunction;
         
-        handles.network = train(handles.network, handles.trainingInput, handles.trainingOutput, 'useGPU', 'yes');
+        %handles.network = train(handles.network, handles.trainingInput, handles.trainingOutput, 'useGPU', 'yes');
+        handles.network = train(handles.network, handles.trainingInput, handles.trainingOutput);
     end
 end
