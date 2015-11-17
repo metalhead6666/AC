@@ -1,7 +1,5 @@
 function [ictalPositives, ictalNegatives, nIctalPositives, nIctalNegatives, preIctalPositives, preIctalNegatives, invalidData, expectedPositives, expectedNegatives] = interpretResults(testOutput, results)
-
-    sizeResults = size(results);
-    numberCols = sizeResults(2);
+    [~, numberCols] = size(results);    
     
     ictalPositives = 0;
     ictalNegatives = 0;
@@ -65,9 +63,6 @@ function [ictalPositives, ictalNegatives, nIctalPositives, nIctalNegatives, preI
         end
     end
     
-    
-    
-    
-    
-    
+    preIctalPositives = ictalPositives;
+    preIctalNegatives = ictalNegatives;
 end

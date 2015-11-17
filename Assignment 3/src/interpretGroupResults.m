@@ -43,5 +43,6 @@ function [ictalPositives, ictalNegatives, nIctalPositives, nIctalNegatives, preI
         end
     end
     
-    
+    preIctalPositives = ictalPositives;
+    preIctalNegatives = ictalNegatives;
 end
