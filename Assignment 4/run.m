@@ -1,7 +1,7 @@
 % script to execute the part A of the assignment
 
 reference_function = input_function('Select the reference function:\n1-Square\n2-Sin\n', [1,2]);
-controller_type = input_function('Select the controller:\n1-Mumdani\n2-Sugeno\n', [1,2]);
+controller_type = input_function('Select the controller:\n1-Mamdani\n2-Sugeno\n', [1,2]);
 rules = input_function('Select the number of rules:\n1-9 rules\n2-25 rules\n', [1,2]);
 membership_function = input_function('Select the membership function:\n1-Gaussmf\n2-Trimf\n', [1,2]);
 
