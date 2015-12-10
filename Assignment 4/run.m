@@ -11,7 +11,7 @@ else
     defuzzification_method = input_function('Select the defuzzification method:\n1-Wtaver\n2-Wtsum\n', [1,2]);
 end
 
-perturbation = input_function('Select the perturbation:\n1-No perturbation\n2-Actuator\n3-Charge\n4-Actuator and Charge\n', [1,2,3,4]);
+perturbation = input_function('Select the perturbation:\n1-No perturbation\n2-Actuator\n3-Charge\n', [1,2,3]);
 
 % load the pretended model and controller
 model_name = 'Models/model_';
@@ -63,8 +63,6 @@ elseif perturbation == 2
 	model_name = strcat(model_name, '_actuator.slx');
 elseif (perturbation == 3)
 	model_name = strcat(model_name, '_charge.slx');
-elseif (perturbation == 4)
-	model_name = strcat(model_name, '_actuator_charge.slx');
 end
 
 controller = readfis(controller_name);
