@@ -6,9 +6,9 @@ rules = input_function('Select the number of rules:\n1-9 rules\n2-25 rules\n', [
 membership_function = input_function('Select the membership function:\n1-Gaussmf\n2-Trimf\n', [1,2]);
 
 if controller_type == 1
-    defuzzification_method = input_function('Select the defuzzification method:\n1-Centroid\n2-Medmax\n', [1,2]);
+    defuzzification_method = input_function('Select the defuzzification method:\n1-Centroid\n2-Mom\n', [1,2]);
 else
-    defuzzification_method = input_function('Select the defuzzification method:\n1-Med\n2-Sum\n', [1,2]);
+    defuzzification_method = input_function('Select the defuzzification method:\n1-Wtaver\n2-Wtsum\n', [1,2]);
 end
 
 perturbation = input_function('Select the perturbation:\n1-No perturbation\n2-Actuator\n3-Charge\n4-Actuator and Charge\n', [1,2,3,4]);
@@ -24,16 +24,16 @@ if controller_type == 1
     if defuzzification_method == 1
         controller_name = strcat(controller_name, 'centroid_');
     else
-        controller_name = strcat(controller_name, 'medmax_');
+        controller_name = strcat(controller_name, 'mom_');
     end
 else
     model_name = strcat(model_name, 'sugeno_');
     controller_name = strcat(controller_name, 'sugeno_');
     
     if defuzzification_method == 1
-        controller_name = strcat(controller_name, 'med_');
+        controller_name = strcat(controller_name, 'wtaver_');
     else
-        controller_name = strcat(controller_name, 'sum_');
+        controller_name = strcat(controller_name, 'wtsum_');
     end
 end
 
