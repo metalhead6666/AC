@@ -57,7 +57,9 @@ else
 	model_name = strcat(model_name, 'sin');
 end
 
-if perturbation == 2
+if perturbation == 1
+    model_name = strcat(model_name, '.slx');
+elseif perturbation == 2
 	model_name = strcat(model_name, '_actuator.slx');
 elseif (perturbation == 3)
 	model_name = strcat(model_name, '_charge.slx');
