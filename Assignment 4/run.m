@@ -11,14 +11,13 @@ else
     defuzzification_method = input_function('Select the defuzzification method:\n1-Wtaver\n2-Wtsum\n', [1,2]);
 end
 
-perturbation = input_function('Select the perturbation:\n1-No perturbation\n2-Actuator\n3-Charge\n', [1,2,3]);
+perturbation = input_function('Select the perturbation:\n1-No perturbation\n2-Actuator\n3-Charge\n4-Actuator and Charge\n', [1,2,3,4]);
 
 % load the pretended model and controller
 model_name = 'Models/model_';
 controller_name = 'Controllers/';
 
 if controller_type == 1
-    model_name = strcat(model_name, 'mamdani_');
     controller_name = strcat(controller_name, 'mamdani_');        
     
     if defuzzification_method == 1
@@ -27,7 +26,6 @@ if controller_type == 1
         controller_name = strcat(controller_name, 'mom_');
     end
 else
-    model_name = strcat(model_name, 'sugeno_');
     controller_name = strcat(controller_name, 'sugeno_');
     
     if defuzzification_method == 1
@@ -38,10 +36,8 @@ else
 end
 
 if rules == 1
-    model_name = strcat(model_name, '9_');
     controller_name = strcat(controller_name, '9_');
 else
-    model_name = strcat(model_name, '25_');
     controller_name = strcat(controller_name, '25_');
 end
 
@@ -61,8 +57,10 @@ if perturbation == 1
     model_name = strcat(model_name, '.slx');
 elseif perturbation == 2
 	model_name = strcat(model_name, '_actuator.slx');
-elseif (perturbation == 3)
+elseif perturbation == 3
 	model_name = strcat(model_name, '_charge.slx');
+elseif perturbation == 4
+    model_name = strcat(model_name, '_actuatorandcharge.slx');
 end
 
 controller = readfis(controller_name);
