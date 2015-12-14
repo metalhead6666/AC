@@ -1,4 +1,5 @@
 % script to execute the part A of the assignment
+clear all;clc
 
 reference_function = input_function('Select the reference function:\n1-Square\n2-Sin\n', [1,2]);
 controller_type = input_function('Select the controller:\n1-Mamdani\n2-Sugeno\n', [1,2]);
