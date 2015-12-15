@@ -1,8 +1,10 @@
 % script to execute the part B of the assignment
-clear all;clc
+clc
 
 if exist('uy.mat', 'file') == 2
     load('uy.mat');
+elseif exist('u', 'var') == 1 && exist('y', 'var') == 1
+    %donothing
 else
     uiopen('ModelsB/newModel.slx', 1);
     return;
