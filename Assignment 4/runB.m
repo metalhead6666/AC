@@ -23,3 +23,4 @@ end
 matrix(:,7) = y(valor:y_size);
 
 save('matrix.dat', 'matrix', '-ascii');
+clear i; clear u; clear u_size; clear valor; clear y; clear y_size;
